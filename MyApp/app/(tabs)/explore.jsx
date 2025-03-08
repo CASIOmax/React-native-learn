@@ -9,7 +9,11 @@ const Info = () => {
     <View>
 
       <View>
-        
+        <Image 
+        style={styles.Image}
+        source={BannerImg}
+        resizeMode="center"
+        />
       </View>
 
       <View style={styles.container} >
@@ -25,6 +29,10 @@ const Info = () => {
         <Text style={styles.text}>Saturday&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160;&#160; 08:00 am - 01:00 pm</Text>
         <Text style={styles.text}>Sunday&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160; CLOSED</Text>
       </View>
+
+      <View>
+        <button style={styles.button}>Order Now!</button>
+      </View>
     </View>
 
   );
@@ -39,8 +47,11 @@ const styles=StyleSheet.create({
     margin:10
   },
   heading:{
-    fontSize:38,
+    fontSize:35,
     color:'white',
+    backgroundColor:'red',
+    borderRadius:23,
+    padding:10
   },
   text:{
     fontSize:16,
@@ -48,6 +59,19 @@ const styles=StyleSheet.create({
     margin:5
   },
   Image:{
-    height:'25%'
+    width: "100%", 
+  },
+  button:{
+    width:"35%",
+    fontSize:18,
+    backgroundColor:"green",
+    color:"white",
+    borderRadius:8,
+    borderWidth:4,
+    borderColor:"#ffffff",
+    fontWeight:"bold",
+    padding:10,
+    marginLeft:"30%",
+    marginTop:40
   }
 })
