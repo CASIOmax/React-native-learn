@@ -1,5 +1,5 @@
-import { View, Text , StyleSheet, Image , ImageBackground} from 'react-native';
-import React from 'react';
+import { View, Text , StyleSheet, Image, Pressable} from 'react-native';
+import { Link } from 'expo-router'
 import BannerImg from "@/assets/images/banner-coffee.jpg";
 
 
@@ -31,14 +31,22 @@ const Info = () => {
       </View>
 
       <View>
-        <button style={styles.button}>Order Now!</button>
+        <Link href="/index" asChild>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Order Now!</Text>
+          </Pressable>
+        </Link>
       </View>
+
+
     </View>
+
+    
 
   );
 }
 
-export default Info
+export default Info;
 
 const styles=StyleSheet.create({
   container:{
@@ -63,15 +71,17 @@ const styles=StyleSheet.create({
   },
   button:{
     width:"35%",
-    fontSize:18,
     backgroundColor:"green",
-    color:"white",
     borderRadius:8,
     borderWidth:4,
     borderColor:"#ffffff",
-    fontWeight:"bold",
-    padding:10,
     marginLeft:"30%",
     marginTop:40
-  }
+  },
+  buttonText:{
+    color:"white",
+    fontSize:18,
+    fontWeight:'bold',
+    padding:10,
+  },
 })
