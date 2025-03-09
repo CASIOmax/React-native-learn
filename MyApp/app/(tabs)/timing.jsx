@@ -30,10 +30,13 @@ const Info = () => {
         <Text style={styles.text}>Sunday&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;|&#160;&#160;&#160;&#160;&#160; CLOSED</Text>
       </View>
 
+      
       <View>
-        <Link href="/index" asChild>
-          <Pressable style={styles.button}>
+        <Link href="../" asChild>
+          <Pressable style={styles.button}  onPress={() => console.log("Navigating to index")}>
             <Text style={styles.buttonText}>Order Now!</Text>
+            {/* console.log("Navigating to index screen"); */}
+            
           </Pressable>
         </Link>
       </View>

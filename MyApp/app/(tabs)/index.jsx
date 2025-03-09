@@ -13,7 +13,7 @@ const App = () => {
       >
       <Text style={styles.text}>Coffee Shop</Text>
 
-      <Link href="/timing" style={{marginHorizontal:'auto'}}>
+      <Link href="/timing" style={{marginHorizontal:'auto'}} asChild>
       <Pressable style={styles.button}>
         <Text style={styles.buttonText}>See out timings</Text>
       </Pressable>

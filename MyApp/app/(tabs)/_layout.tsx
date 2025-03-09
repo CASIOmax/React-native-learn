@@ -15,6 +15,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -30,14 +31,21 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          // tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ color, focused }) => <IconSymbol size={28} name={focused? 'house.fill':'paperplane.fill'} color={color} />,
+
+
+          // tabBarIcon: ({ color , focused}) => (
+          //   <TabBarIcon name={focused ? 'house':'house.fill'} color ={color} />
+          // ) 
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="timing"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Timing',
+          // tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color, focused  }) => <IconSymbol size={28} name={focused? 'paperplane.fill':'paperplane.fill'} color={color} />,
         }}
       />
     </Tabs>
