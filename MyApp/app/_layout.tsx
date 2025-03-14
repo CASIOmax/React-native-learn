@@ -1,18 +1,20 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Appearance } from 'react-native';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Colors } from '@/constants/Colors';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = Appearance.getColorScheme();
+
+  const theme = colorScheme === 'dark'? Colors.dark:Colors.light;
+
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -28,18 +30,17 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack screenOptions={{headerStyle:{backgroundColor:theme.headerBackground},headerTintColor:theme.text,headerShadowVisible:false}}>
+        <Stack.Screen name="index" options={{ headerShown: false, title:'Home' }} />
+        <Stack.Screen name="timing" options={{ headerShown: false, title:'Times' }} />
+        <Stack.Screen name="menu" options={{ headerShown: false, title:'Our Menu' }} />
 
         {/* <Stack.Screen name="(coffee)" options={{ headerShown: false }} /> */}
 
         {/* <Stack.Screen name="index" options={{ title: "Home" ,headerShown: false }} />
         <Stack.Screen name="timing" options={{ title: "Shop Timings" ,headerShown: false }} /> */}
         
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
   );
 }
