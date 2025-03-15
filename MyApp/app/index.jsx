@@ -19,6 +19,12 @@ const App = () => {
       </Pressable>
       </Link>
 
+      <Link href="/menu" style={{marginHorizontal:'auto'}} asChild>
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>Our Menu</Text>
+      </Pressable>
+      </Link>
+
       </ImageBackground>
     </View>
   );
